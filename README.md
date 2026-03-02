@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Device Detector Demo
 
-## Getting Started
+デバイスの種類（モバイル/デスクトップ）を判定するデモアプリケーションです。
 
-First, run the development server:
+## プロジェクトの目的
+
+このプロジェクトは、ブラウザのAPIを使用してユーザーのデバイスを正確に判定するための実験的なツールです。以下の情報を収集・分析します：
+
+- **User Agent** - ブラウザが報告するユーザーエージェント文字列
+- **User-Agent Client Hints** - モバイルデバイスであるかの判定情報
+- **画面サイズ** - 物理画面幅・高さと表示領域サイズ
+- **タッチ機能** - タッチポイント数とポインタ精度
+- **ホバー対応** - ホバー操作への対応状況
+- **画面向き** - デバイスの現在の向き（ポートレート/ランドスケープ）
+
+これらの情報を組み合わせることで、以下の判定を行います：
+
+1. **デスクトップデバイス** - マウス/トラックパッド操作デバイス
+2. **モバイルデバイス** - スマートフォン/タブレット
+3. **モバイルデバイス (PCモード)** - スマートフォンでPC表示モードを有効にした状態
+
+## セットアップ
+
+### 依存関係のインストール
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 開発サーバーの起動
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くと、デバイス判定デモページが表示されます。
 
-## Learn More
+## 技術スタック
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js 16.1.6** - React フレームワーク（Turbopack対応）
+- **React 19.2.3** - UIライブラリ
+- **TypeScript 5** - 型安全性
+- **Tailwind CSS 4** - ユーティリティファーストCSSフレームワーク
+- **Yarn** - パッケージマネージャー
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 利用しているブラウザAPI
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `navigator.userAgent` - ユーザーエージェント文字列
+- `navigator.userAgentData.getHighEntropyValues()` - User-Agent Client Hints
+- `window.innerWidth/Height` - 表示領域のサイズ
+- `window.screen.width/height` - 物理画面のサイズ
+- `navigator.maxTouchPoints` - タッチポイント数
+- `window.matchMedia()` - CSSメディアクエリの評価
+- `window.screen.orientation` - 画面向き情報
 
-## Deploy on Vercel
+## ブラウザ互換性
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+このアプリケーションは、以下のブラウザで動作します：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- iOS Safari 14+
+- Android Chrome
+
+一部の機能（User-Agent Client Hints など）は、古いブラウザではサポートされていない場合があります。
+
+## ライセンス
+
+MIT
