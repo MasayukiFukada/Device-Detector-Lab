@@ -136,97 +136,117 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-3xl font-bold text-center mb-8">デバイス判定デモ</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-gray-900">
+        デバイス判定デモ
+      </h1>
 
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4">判定結果:</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-900">判定結果:</h2>
         <div className="mb-4 p-4 border rounded-md">
-          <p className="text-xl font-bold">
+          <p className="text-xl font-bold text-gray-900">
             このデバイスは{" "}
             {deviceStatus.isDesktopModeOnMobile ? (
-              <span className="text-orange-600">
+              <span className="text-orange-700">
                 モバイルデバイス (PCモード)
               </span>
             ) : deviceStatus.isMobileDevice ? (
-              <span className="text-blue-600">モバイルデバイス</span>
+              <span className="text-blue-700">モバイルデバイス</span>
             ) : (
-              <span className="text-green-600">デスクトップデバイス</span>
+              <span className="text-green-700">デスクトップデバイス</span>
             )}{" "}
             と判定されました。
           </p>
           {deviceStatus.isDesktopModeOnMobile && (
-            <p className="text-sm text-gray-700 mt-2">
+            <p className="text-sm text-gray-800 mt-2">
               <span className="font-semibold">補足:</span>
               物理画面サイズがモバイル相当でありながら、表示領域が大幅に拡大されているため、モバイルのPCモードである可能性が高いです。
             </p>
           )}
         </div>
 
-        <h2 className="text-2xl font-semibold mb-4 mt-8">詳細ステータス:</h2>
+        <h2 className="text-2xl font-semibold mb-4 mt-8 text-gray-900">
+          詳細ステータス:
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">User Agent:</h3>
-            <p className="text-sm break-all">{deviceStatus.userAgent}</p>
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
+              User Agent:
+            </h3>
+            <p className="text-sm break-all text-gray-800">
+              {deviceStatus.userAgent}
+            </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
               User-Agent Client Hints (mobile):
             </h3>
-            <p className="text-sm">
+            <p className="text-sm text-gray-800">
               {deviceStatus.userAgentMobile !== null
                 ? String(deviceStatus.userAgentMobile)
                 : "未サポートまたは取得中"}
             </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
               window.innerWidth (表示幅):
             </h3>
-            <p className="text-sm">{deviceStatus.windowInnerWidth} px</p>
+            <p className="text-sm text-gray-800">
+              {deviceStatus.windowInnerWidth} px
+            </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
               window.innerHeight (表示高):
             </h3>
-            <p className="text-sm">{deviceStatus.windowInnerHeight} px</p>
+            <p className="text-sm text-gray-800">
+              {deviceStatus.windowInnerHeight} px
+            </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
               window.screen.width (物理画面幅):
             </h3>
-            <p className="text-sm">{deviceStatus.windowScreenWidth} px</p>
+            <p className="text-sm text-gray-800">
+              {deviceStatus.windowScreenWidth} px
+            </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
               window.screen.height (物理画面高):
             </h3>
-            <p className="text-sm">{deviceStatus.windowScreenHeight} px</p>
+            <p className="text-sm text-gray-800">
+              {deviceStatus.windowScreenHeight} px
+            </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
               navigator.maxTouchPoints (最大タッチ点数):
             </h3>
-            <p className="text-sm">{deviceStatus.maxTouchPoints}</p>
+            <p className="text-sm text-gray-800">
+              {deviceStatus.maxTouchPoints}
+            </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
               @media (pointer: coarse):
             </h3>
-            <p className="text-sm">
+            <p className="text-sm text-gray-800">
               {String(deviceStatus.pointerCoarse)} (指での操作を検出)
             </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">@media (hover: none):</h3>
-            <p className="text-sm">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
+              @media (hover: none):
+            </h3>
+            <p className="text-sm text-gray-800">
               {String(deviceStatus.hoverNone)} (ホバー操作不可を検出)
             </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2">
+            <h3 className="text-lg font-medium mb-2 text-gray-900">
               screen.orientation.type (画面向き):
             </h3>
-            <p className="text-sm">{deviceStatus.orientation}</p>
+            <p className="text-sm text-gray-800">{deviceStatus.orientation}</p>
           </div>
         </div>
       </div>
